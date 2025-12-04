@@ -5,11 +5,13 @@ const jwt = require('jsonwebtoken');
 // Register a new user
 exports.register = async (req, res) => {
     try {
+        console.log('Register request received:', req.body);
         const { username, email, password } = req.body;
 
         // Check if user already exists
         let user = await User.findOne({ email });
         if (user) {
+            console.log('User already exists:', email);
             return res.status(400).json({ message: 'User already exists' });
         }
 
@@ -25,6 +27,7 @@ exports.register = async (req, res) => {
         });
 
         await user.save();
+        console.log('User saved:', user.id);
 
         // Create JWT payload
         const payload = {
@@ -44,8 +47,8 @@ exports.register = async (req, res) => {
             }
         );
     } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
+        console.error('Registration Error:', err.message);
+        res.status(500).json({ message: err.message });
     }
 };
 

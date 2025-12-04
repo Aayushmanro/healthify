@@ -19,11 +19,10 @@ const Portal = () => {
             <header className="dashboard-header">
                 <h1>Healthcare Portal</h1>
                 <nav className="dashboard-nav">
-                    <a href="#home">Home</a>
+                    <Link to="/dashboard">Dashboard</Link>
                     <a href="#services">Services</a>
                     <Link to="/contact">Contact</Link>
-                    <Link to="/profile">My Profile</Link>
-                    <Link to="/dashboard">Dashboard</Link>
+                    <Link to="/profile">My Profile</Link>                    
                 </nav>
             </header>
 

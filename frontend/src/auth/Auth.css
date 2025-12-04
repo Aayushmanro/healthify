@@ -1,0 +1,116 @@
+/* Auth Page Styles */
+.auth-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f7fb;
+    /* Match Dashboard background */
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    /* Match Dashboard card radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Match Dashboard shadow */
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    /* Match Dashboard text color */
+    margin: 0;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4a6fa5;
+    /* Match Dashboard accent */
+    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a6fa5;
+    /* Match Dashboard accent */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.auth-button:hover {
+    background-color: #3b5998;
+}
+
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.auth-link {
+    color: #4a6fa5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}

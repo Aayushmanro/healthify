@@ -2,15 +2,38 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Portal.css';
 
+import axios from 'axios';
+
 const Profile = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [profileData, setProfileData] = useState({
-        name: "John Doe",
-        email: "john.doe@example.com",
-        phone: "+1 (555) 000-0000",
-        allergies: "Peanuts, Penicillin",
-        medications: "Lisinopril 10mg, Multivitamin"
+        name: "",
+        email: "",
+        phone: "",
+        allergies: "",
+        medications: ""
     });
+
+    // Fetch profile on mount
+    React.useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const config = {
+                    headers: {
+                        'x-auth-token': token
+                    }
+                };
+                const res = await axios.get('http://localhost:5000/api/profile', config);
+                if (res.data) {
+                    setProfileData(res.data);
+                }
+            } catch (err) {
+                console.error("Error fetching profile:", err);
+            }
+        };
+        fetchProfile();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,9 +43,22 @@ const Profile = () => {
         }));
     };
 
-    const handleSave = () => {
-        setIsEditing(false);
-        alert("Profile saved successfully!");
+    const handleSave = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': token
+                }
+            };
+            await axios.post('http://localhost:5000/api/profile', profileData, config);
+            setIsEditing(false);
+            alert("Profile saved successfully!");
+        } catch (err) {
+            console.error("Error saving profile:", err);
+            alert("Failed to save profile.");
+        }
     };
 
     return (
