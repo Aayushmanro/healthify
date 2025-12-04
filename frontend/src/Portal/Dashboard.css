@@ -1,0 +1,224 @@
+/* Global Reset & Layout */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    /* Using a modern font if available, else fallback */
+    background-color: #f5f7fb;
+    /* Light grey background for the main area */
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    /* Fixed sidebar */
+    height: 100%;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: #555;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background-color: #f0f4f8;
+    color: #2c3e50;
+}
+
+.sidebar-logout {
+    margin-top: auto;
+    color: #888;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 250px;
+    /* Offset for fixed sidebar */
+    flex: 1;
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+.header-welcome {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-welcome h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.header-welcome h2 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+/* Wellness Goals Section */
+.section-title {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.wellness-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.stat-subtext {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Wide Cards (Reminders, Tips) */
+.wide-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wide-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.wide-card p {
+    color: #555;
+    margin: 0;
+}
+
+.highlight-text {
+    color: #4a6fa5;
+    font-weight: 500;
+}
+
+/* Modal Styles (Keeping existing functionality) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

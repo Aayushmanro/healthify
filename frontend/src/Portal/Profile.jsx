@@ -22,30 +22,54 @@ const Profile = () => {
 
     const handleSave = () => {
         setIsEditing(false);
-        // In a real app, this would send data to the backend
         alert("Profile saved successfully!");
     };
 
     return (
-        <div className="dashboard-container">
-            <header className="dashboard-header">
-                <h1>Healthcare Portal</h1>
-                <nav className="dashboard-nav">
-                    <Link to="/portal">Home</Link>
-                    <a href="#services">Services</a>
-                    <Link to="/contact">Contact</Link>
-                    <Link to="/profile">My Profile</Link>
+        <div className="app-container">
+            {/* Sidebar */}
+            <aside className="sidebar">
+                <div className="sidebar-logo">Healthify</div>
+                <nav className="sidebar-nav">
+                    <Link to="/portal" className="sidebar-link">
+                        <span>🏠</span> Portal
+                    </Link>
+                    <Link to="/dashboard" className="sidebar-link">
+                        <span>📊</span> Dashboard
+                    </Link>
+                    <Link to="/profile" className="sidebar-link active">
+                        <span>👤</span> My Profile
+                    </Link>
+                    <a href="#goals" className="sidebar-link">
+                        <span>🎯</span> Wellness Goals
+                    </a>
+                    <a href="#messages" className="sidebar-link">
+                        <span>💬</span> Messages
+                    </a>
+                    <a href="#logout" className="sidebar-link sidebar-logout">
+                        <span>🚪</span> Logout
+                    </a>
                 </nav>
-            </header>
+            </aside>
 
-            <main className="dashboard-content">
-                <h2>My Profile</h2>
+            {/* Main Content */}
+            <main className="main-content">
+                <div className="header-welcome">
+                    <h1>My Profile</h1>
+                </div>
 
-                <div className="info-card">
+                <div className="wide-card">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                         <h3>Personal Information</h3>
                         <button
-                            className="read-more-btn"
+                            style={{
+                                backgroundColor: '#4a90e2',
+                                color: 'white',
+                                border: 'none',
+                                padding: '8px 16px',
+                                borderRadius: '4px',
+                                cursor: 'pointer'
+                            }}
                             onClick={() => isEditing ? handleSave() : setIsEditing(true)}
                         >
                             {isEditing ? "Save Changes" : "Edit Profile"}
@@ -91,7 +115,7 @@ const Profile = () => {
                     </form>
                 </div>
 
-                <div className="info-card">
+                <div className="wide-card">
                     <h3>Health Information</h3>
                     <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
                         <div className="form-group">

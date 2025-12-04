@@ -4,6 +4,7 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 import './App.css'
 import Portal from './Portal/Portal';
+import Dashboard from './Portal/Dashboard';
 import Contact from './Portal/Contact';
 import Profile from './Portal/Profile';
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/portal" element={<Portal />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

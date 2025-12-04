@@ -1,24 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Portal.css'; // Reusing the same CSS for consistency
+import './Portal.css';
 
 const Contact = () => {
     return (
-        <div className="dashboard-container">
-            <header className="dashboard-header">
-                <h1>Healthcare Portal</h1>
-                <nav className="dashboard-nav">
-                    <Link to="/portal">Home</Link>
-                    <a href="#services">Services</a>
-                    <Link to="/contact">Contact</Link>
-                    <Link to="/profile">My Profile</Link>
+        <div className="app-container">
+            {/* Sidebar */}
+            <aside className="sidebar">
+                <div className="sidebar-logo">Healthify</div>
+                <nav className="sidebar-nav">
+                    <Link to="/portal" className="sidebar-link">
+                        <span>🏠</span> Portal
+                    </Link>
+                    <Link to="/dashboard" className="sidebar-link">
+                        <span>📊</span> Dashboard
+                    </Link>
+                    <Link to="/profile" className="sidebar-link">
+                        <span>👤</span> My Profile
+                    </Link>
+                    <a href="#goals" className="sidebar-link">
+                        <span>🎯</span> Wellness Goals
+                    </a>
+                    <a href="#messages" className="sidebar-link">
+                        <span>💬</span> Messages
+                    </a>
+                    <a href="#logout" className="sidebar-link sidebar-logout">
+                        <span>🚪</span> Logout
+                    </a>
                 </nav>
-            </header>
+            </aside>
 
-            <main className="dashboard-content">
-                <h2>Contact Us</h2>
+            {/* Main Content */}
+            <main className="main-content">
+                <div className="header-welcome">
+                    <h1>Contact Us</h1>
+                </div>
 
-                <div className="info-card">
+                <div className="wide-card">
                     <h3>Get in Touch</h3>
                     <p>We are here to help you. Fill out the form below or reach us via email or phone.</p>
 
@@ -38,11 +56,19 @@ const Contact = () => {
                             <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
                         </div>
 
-                        <button type="submit" className="read-more-btn">Send Message</button>
+                        <button type="submit" style={{
+                            backgroundColor: '#4a90e2',
+                            color: 'white',
+                            border: 'none',
+                            padding: '10px 20px',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                            marginTop: '10px'
+                        }}>Send Message</button>
                     </form>
                 </div>
 
-                <div className="info-card">
+                <div className="wide-card">
                     <h3>Contact Information</h3>
                     <p><strong>Email:</strong> support@healthcareportal.com</p>
                     <p><strong>Phone:</strong> +1 (555) 123-4567</p>

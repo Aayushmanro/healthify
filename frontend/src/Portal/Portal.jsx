@@ -23,6 +23,7 @@ const Portal = () => {
                     <a href="#services">Services</a>
                     <Link to="/contact">Contact</Link>
                     <Link to="/profile">My Profile</Link>
+                    <Link to="/dashboard">Dashboard</Link>
                 </nav>
             </header>
 
