@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './auth/Login';
 import Register from './auth/Register';
 import './App.css'
+import Portal from './Portal/Portal';
+import Contact from './Portal/Contact';
+import Profile from './Portal/Profile';
 
 function App() {
   return (
@@ -12,7 +15,9 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<div>Dashboard (Protected)</div>} />
+          <Route path="/portal" element={<Portal />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>
