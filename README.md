@@ -1,66 +1,41 @@
-# 🏥 Healthcare Wellness & Preventive Care Portal (MVP)
+# Healthify - Preventive Care Portal 🏥
 
-> **HCLTech Hackathon Submission**  
-> **Track:** Healthcare & Life Sciences  
-> **Stack:** MERN (MongoDB, Express, React, Node.js)
+**HCLTech Hackathon - Healthcare & Life Sciences Track**
 
-## 📖 Project Overview
+A secure, role-based portal connecting patients and providers. Built with the MERN stack (MongoDB, Express, React, Node.js).
 
-This project is a secure, role-based web portal designed to bridge the gap between patients and healthcare providers. Built under a strict 5-hour MVP constraint, it focuses on preventive care tracking (Steps, Sleep, Water) and ensures HIPAA-style compliance through robust audit logging and strict access control.
+## What is this?
 
-## 🎯 Key Problem Solved
+We built this MVP in just 5 hours to solve a simple problem: doctors don't know what patients do at home, and patients don't have a safe way to share that info.
 
-Healthcare providers often lack real-time visibility into a patient's daily habits, and patients lack a secure, easy way to share this data. This portal allows patients to log daily metrics and gives providers a "Compliance Dashboard" to identify at-risk patients instantly.
+Healthify lets patients log their daily habits (steps, sleep, water), and gives providers a dashboard to spot who needs help.
 
-## 🧠 Approach: The "MVP First" Strategy
+## How we built it (The "MVP First" approach)
 
-**Philosophy:** Agile Development with a strict focus on "Must-Have" requirements.  
-**Core Objective:** Deliver a functional prototype that proves the concept of secure and role-based preventive care within 5 hours.
+We had a strict time limit, so we focused on what actually matters:
+*   **Security isn't optional:** We baked in HIPAA-style compliance (audit logs, consent, encryption) from the start.
+*   **Keep it simple:** Monolithic backend for speed, React frontend for the UI.
+*   **Data that works:** We check patient logs against set thresholds (like getting < 7 hours of sleep) to flag risks automatically.
 
-### Key Strategies
+## Tech Stack
 
-*   **Role-Based Separation:** Distinct workflows for Patients (Data Entry) and Providers (Data Monitoring).
-*   **Security by Design:** Integrating HIPAA-compliant features (Consent, Audit Logging, Encryption) from the first line of code, not as an afterthought.
-*   **Simplicity over Complexity:** Using a monolithic backend (for speed) and a component-based frontend (for reusability).
-*   **Data-Driven Compliance:** The "Preventive Care" aspect is driven by comparing user logs against hardcoded thresholds (e.g., < 7 hours sleep = "At Risk").
+*   **Frontend:** React + Tailwind CSS (Fast, responsive UI)
+*   **Backend:** Node.js + Express (API & Business Logic)
+*   **Database:** MongoDB Atlas (Flexible data storage)
 
-## ⚙ Architecture: MERN Stack (3-Tier)
+## Key Features
 
-We utilize a Client-Server Architecture using the MERN stack.
+### 🔒 Security First
+*   **RBAC:** Patients and Providers see completely different things.
+*   **Audit Logs:** We track every login and data access.
+*   **Privacy:** Users must consent to data usage, and we use JWT + BCrypt for auth.
 
-### A. The Tiers
+### 👤 For Patients
+*   **Daily Tracker:** Log your steps, sleep, and water easily.
+*   **Visual Goals:** See your progress in real-time.
+*   **Health Tips:** Get advice when you log in.
 
-1.  **Presentation Layer (Frontend)**
-    *   **Tech:** React.js + Tailwind CSS.
-    *   **Role:** Handles user interaction, state management (React Hooks), and JWT storage.
-
-2.  **Application Layer (Backend)**
-    *   **Tech:** Node.js + Express.js.
-    *   **Role:** API endpoints, Authentication middleware (JWT), Business Logic (Compliance checks), and Security Logging.
-
-3.  **Data Layer (Database)**
-    *   **Tech:** MongoDB (Atlas).
-    *   **Role:** JSON-document storage. Flexible schema allows us to iterate properties quickly.
-
-### B. Data Flow Diagram
-
-`User Action (Frontend)` $\rightarrow$ `HTTP Request (Axios)` $\rightarrow$ `Express Route` $\rightarrow$ `Controller Logic` $\rightarrow$ `Mongoose Model` $\rightarrow$ `MongoDB`
-
-## 🚀 Key Features
-
-### 1. Security & Compliance (Priority)
-*   **Role-Based Access Control (RBAC):** Strict separation between Patient and Provider views.
-*   **Audit Logging:** Every critical action (Data Access, Login) is logged to a secure AuditLogs collection in the database.
-*   **Data Consent:** Mandatory "Consent for Data Usage" checkbox during registration.
-*   **Secure Auth:** JWT (JSON Web Token) authentication with BCrypt password hashing.
-
-### 2. Patient Dashboard
-*   **Daily Goal Tracker:** Interactive inputs for Steps, Sleep Hours, and Water Intake.
-*   **Real-time Progress:** Visual feedback on daily goals.
-*   **Health Tips:** Dynamic health advice displayed on login.
-*   **Profile Management:** Update critical info like Allergies and Medications.
-
-### 3. Provider Dashboard
-*   **Patient Monitoring:** List view of all assigned patients.
-*   **Compliance Checker:** Automated logic to flag patients who missed their daily logs or are falling behind on goals.
-*   **Read-Only Access:** Providers can view but not alter patient logs (maintaining data integrity).
+### 👨‍⚕️ For Providers
+*   **Patient List:** See all your assigned patients in one place.
+*   **Compliance Dashboard:** Instantly see who's missing their goals or logs.
+*   **Read-Only:** You can view patient data, but you can't change it.
